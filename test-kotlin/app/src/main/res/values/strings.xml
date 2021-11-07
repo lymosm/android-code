@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">test-kotlin by lymos</string>
     <string name="btn_login">Login</string>
+    <string name="btn_home">Home</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -10,4 +11,8 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="login_title">Login</string>
+    <string name="ipt_account">Account</string>
+    <string name="ipt_pwd">Password</string>
+    <string name="login_header">Login Lymos App</string>
 </resources>

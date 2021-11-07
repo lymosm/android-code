@@ -1,5 +1,6 @@
 package com.example.test_kotlin
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +24,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setFragHome(){
         replaceFragment(FragHome())
+    }
+
+    fun goToActivity(){
+        val intent = Intent(this, MyLoginActivity::class.java)
+       // intent.setClass(this, MyLoginActivity::class.java)
+        this?.startActivity(intent)
     }
 
     private fun replaceFragment(fragment: Fragment){
@@ -67,4 +75,28 @@ class FragHome: Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
         return inflater.inflate(R.layout.login, container, false)
     }
+
+    /*
+    override fun onActivityCreated(savedInstanceState: Bundle?){
+        super.onActivityCreated(savedInstanceState)
+
+    }
+    */
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
+        super.onViewCreated(view, savedInstanceState)
+
+        val btnLogin: Button = view?.findViewById(R.id.btn_login)
+        btnLogin.setOnClickListener{
+            goToActivity()
+        }
+    }
+
+    private fun goToActivity(){
+        val ac = MainActivity()
+        val intent = Intent(ac, MyLoginActivity::class.java)
+        // intent.setClass(this, MyLoginActivity::class.java)
+        ac?.startActivity(intent)
+    }
+
 }

@@ -2,7 +2,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -12,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60sp"
-        android:text="Top"
+        android:text="@string/nav"
         android:layout_gravity="center_horizontal"
         android:textColor="#000000"
         android:textAlignment="center"
@@ -34,6 +33,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50sp"
+            android:baselineAligned="false"
             android:id="@+id/bottom_bar"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:text="Home"
+                    android:text="@string/home"
                     android:gravity="center_horizontal"
                     android:id="@+id/icon1_text"
                     android:textColor="#000000"
@@ -59,6 +59,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:id="@+id/icon1_img"
+                    android:contentDescription="@string/img"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/ic_launcher_background"
@@ -76,10 +77,11 @@
                     android:layout_alignParentBottom="true"
                     android:gravity="center_horizontal"
                     android:id="@+id/icon2_text"
-                    android:text="Chess"/>
+                    android:text="@string/frag_list"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:contentDescription="@string/img"
                     android:src="@drawable/ic_launcher_background"
                     android:layout_marginTop="3dp"
                     android:id="@+id/icon2_img"
@@ -98,22 +100,17 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:layout_alignParentBottom="true"
-                    android:text="User"/>
+                    android:text="@string/frag_user"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:contentDescription="@string/img"
                     android:src="@drawable/ic_launcher_background"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="3dp"
                     android:layout_centerHorizontal="true"
                     />
             </RelativeLayout>
-
-
         </LinearLayout>
-
-
     </RelativeLayout>
-
-
 </LinearLayout>

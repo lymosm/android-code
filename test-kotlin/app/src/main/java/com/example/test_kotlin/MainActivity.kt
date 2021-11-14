@@ -11,14 +11,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Button
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+        // custom titlebar 自定义标题栏
+        try {
+            // requestWindowFeature(Window.FEATURE_CUSTOM_TITLE)
+            setContentView(R.layout.activity_main)
+
+         //   window.setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.title_btn)
+        }catch(e: Exception){
+            e.printStackTrace()
+        }
         setIconClick()
     }
 

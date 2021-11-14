@@ -15,4 +15,10 @@
     <string name="ipt_account">Account</string>
     <string name="ipt_pwd">Password</string>
     <string name="login_header">Login Lymos App</string>
+    <string name="img">img</string>
+    <string name="shop_name">shop</string>
+    <string name="frag_list">List</string>
+    <string name="frag_user">User</string>
+    <string name="home">Home</string>
+    <string name="nav">Nav</string>
 </resources>

@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,16 +30,24 @@ class MainActivity : AppCompatActivity() {
             e.printStackTrace()
         }
         setIconClick()
+        setLoginClick()
     }
 
     private fun setFragHome(){
         replaceFragment(FragHome())
     }
 
-    fun goToActivity(){
+    private fun goToActivity(){
         val intent = Intent(this, MyLoginActivity::class.java)
        // intent.setClass(this, MyLoginActivity::class.java)
         this?.startActivity(intent)
+    }
+
+    private fun setLoginClick(){
+        val btnLogin: Button = findViewById(R.id.btn_login)
+        btnLogin.setOnClickListener{
+            goToActivity()
+        }
     }
 
     private fun replaceFragment(fragment: Fragment){
@@ -46,6 +55,18 @@ class MainActivity : AppCompatActivity() {
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.frag, fragment)
         transaction.commit()
+    }
+
+    private fun goToFragList(){
+        replaceFragment(FragList())
+    }
+
+    private fun alert(msg: String){
+        val dialog = AlertDialog.Builder(this)
+            .setIcon(R.drawable.ic_launcher_background)
+            .setTitle("Tip")
+            .setMessage(msg)
+        dialog.create().show()
     }
 
     /**
@@ -60,20 +81,47 @@ class MainActivity : AppCompatActivity() {
         val icon2Text: TextView = findViewById(R.id.icon2_text)
         val icon2Img: ImageView = findViewById(R.id.icon2_img)
 
+        val icon3: RelativeLayout = findViewById(R.id.icon3)
+        val icon3Text: TextView = findViewById(R.id.icon3_text)
+        val icon3Img: ImageView = findViewById(R.id.icon3_img)
+
         icon1.setOnClickListener{
             icon1Text.setTextColor(Color.parseColor("#a423a5"))
             icon1Img.setImageResource(R.drawable.home_selected)
             icon2Text.setTextColor(Color.parseColor("#000000"))
             icon2Img.setImageResource(R.drawable.ic_launcher_background)
+            icon3Text.setTextColor(Color.parseColor("#000000"))
+            icon3Img.setImageResource(R.drawable.ic_launcher_background)
+
             setFragHome()
         }
+        icon1.callOnClick()  // 触发点击
 
         icon2.setOnClickListener{
             icon2Text.setTextColor(Color.parseColor("#a423a5"))
             icon2Img.setImageResource(R.drawable.home_selected)
             icon1Text.setTextColor(Color.parseColor("#000000"))
             icon1Img.setImageResource(R.drawable.ic_launcher_background)
+            icon3Text.setTextColor(Color.parseColor("#000000"))
+            icon3Img.setImageResource(R.drawable.ic_launcher_background)
+
+            goToFragList()
         }
+
+        icon3.setOnClickListener{
+            icon3Text.setTextColor(Color.parseColor("#a423a5"))
+            icon3Img.setImageResource(R.drawable.home_selected)
+            icon1Text.setTextColor(Color.parseColor("#000000"))
+            icon1Img.setImageResource(R.drawable.ic_launcher_background)
+            icon2Text.setTextColor(Color.parseColor("#000000"))
+            icon2Img.setImageResource(R.drawable.ic_launcher_background)
+
+            goToFragUser()
+        }
+    }
+
+    private fun goToFragUser(){
+        replaceFragment(FragUser())
     }
 }
 
@@ -82,7 +130,7 @@ class MainActivity : AppCompatActivity() {
  */
 class FragHome: Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
-        return inflater.inflate(R.layout.login, container, false)
+        return inflater.inflate(R.layout.home, container, false)
     }
 
     /*
@@ -92,6 +140,7 @@ class FragHome: Fragment(){
     }
     */
 
+    /*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
 
@@ -100,6 +149,7 @@ class FragHome: Fragment(){
             goToActivity()
         }
     }
+     */
 
     private fun goToActivity(){
         val ac = MainActivity()
